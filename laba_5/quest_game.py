@@ -50,7 +50,9 @@ if start_of_the_game():
             if number_of_stones == 1:
                 print("\nВы победили!")
                 win = "User_win"
-            else:
+            elif number_of_stones < 1:
+                print("Подумайте еще раз")
+            elif number_of_stones > 1:
                 print(f"\nТекущее значение камней в куче: {number_of_stones}\n")
                 print("Ход другого игрока ...")
 
