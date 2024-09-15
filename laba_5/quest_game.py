@@ -2,6 +2,7 @@ import random
 import time
 import keyboard
 
+
 def start_of_the_game():
     print(
         "Добро пожаловать в игру! \n"
@@ -16,6 +17,7 @@ def start_of_the_game():
         if keyboard.is_pressed('N'):
             return False
 
+
 def check_for_save_data(input_data):
     for char in input_data:
         if char not in "012345678":
@@ -28,8 +30,9 @@ def check_for_save_data(input_data):
 def get_ai_step(number_of_stones):
     if number_of_stones <= 4:
         return 1, abs(1 - number_of_stones)
-    ai_step = random.randint(1,3)
+    ai_step = random.randint(1, 3)
     return number_of_stones - ai_step, ai_step
+
 
 if start_of_the_game():
 

@@ -82,4 +82,3 @@ else:
 
 print("Введите дату рождения в соответствии с образцом")
 date_of_birth = input("YYYY.MM.DD ")
-
