@@ -3,7 +3,7 @@
 # в питоне нет встроенного инструмента, оределяющего принадлежность буквы
 # к латинскому алфавиту. Я могу это решить циклом, но по общему условию:
 # Нельзя использовать посимвольную обработку строк. Не понятно, что от меня хотят.
-
+# regex, регулярное выражение, https://regex101.com/
 def check_for_auto_number(string: str):
     if len(string) == 6 and string.isalnum():
         if string[:2].isalpha() and string[2:-1].isdigit() and string[-1:].isalpha():
@@ -17,3 +17,4 @@ if check_for_auto_number(input_str):
     print("Может являться номером автомобиля")
 else:
     print("Не может являться номером автомобиля")
+
