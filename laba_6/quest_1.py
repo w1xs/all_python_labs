@@ -1,3 +1,7 @@
+# для построения реугярных выражений, используй https://regex101.com/
+import re
+
+
 def check_for_correct_input(string: str):
     if len(string) > 3:
         return True
@@ -5,11 +9,10 @@ def check_for_correct_input(string: str):
 
 
 def check_for_filenames(string: str):
-    if string.count('.') == 1 and string.count('/') == 0 and string.count('*') == 0 and string.count(
-            '>') == 0 and string.count('<') == 0 and string.count("\\") == 0 and string.count(
-        "|") == 0 and string.count(
-        '?') == 0 and string[-4:] in ['.txt', '.doc', '.docx', '.odt', '.rtf']:
-        return True
+    if string.count('.') == 1 and len(re.findall("[\\!?/|*<>=]", string)) == 0:
+        if string[-4:] in ['.txt', '.doc', '.docx', '.odt', '.rtf']:
+            return True
+        return False
     return False
 
 
