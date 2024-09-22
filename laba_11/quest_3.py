@@ -1,4 +1,5 @@
 import random
+import os
 
 
 def check_for_correct_input(number: str):
@@ -54,21 +55,24 @@ def add_sentences_to_file(file_name: str, arr_for_write: []):
 data_file_name = "quest_3_data.txt"
 res_file_name = "quest_3_res.txt"
 
-print("Введите число предложений, которые нужно сгенерировать: ")
-input_str = input()
-if check_for_correct_input(input_str):
-    arr_of_sentences = get_n_sentence_from_file(data_file_name, int(input_str))
-    write_sentences_to_file(res_file_name, arr_of_sentences)
+if data_file_name in os.listdir(os.getcwd()):
+    print("Введите число предложений, которые нужно сгенерировать: ")
+    input_str = input()
+    if check_for_correct_input(input_str):
+        arr_of_sentences = get_n_sentence_from_file(data_file_name, int(input_str))
+        write_sentences_to_file(res_file_name, arr_of_sentences)
 
-    print("Желаете добавить еще предложений?")
-    input_answer = input()
-    if input_answer == "Да":
-        print("Введите число предложений, которые нужно сгенерировать: ")
-        input_str = input()
-        if check_for_correct_input(input_str):
-            arr_of_sentences = get_n_sentence_from_file(data_file_name, int(input_str))
-            add_sentences_to_file(res_file_name, arr_of_sentences)
-        else:
-            print("Неверное колличество предлжений")
+        print("Желаете добавить еще предложений?")
+        input_answer = input()
+        if input_answer == "Да":
+            print("Введите число предложений, которые нужно сгенерировать: ")
+            input_str = input()
+            if check_for_correct_input(input_str):
+                arr_of_sentences = get_n_sentence_from_file(data_file_name, int(input_str))
+                add_sentences_to_file(res_file_name, arr_of_sentences)
+            else:
+                print("Неверное колличество предлжений")
+    else:
+        print("Неверное колличество предложений")
 else:
-    print("Неверное колличество предложений")
+    print("Нужный файл не найден")
