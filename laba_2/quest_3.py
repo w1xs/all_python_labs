@@ -1,3 +1,9 @@
+def check_for_correct_input(string: str):
+    for char in string:
+        if char not in '.-0123456789':
+            return False
+    return True
+
 def get_sum_of_cifr(number):
     if number < 0:
         number = number * -1
@@ -10,7 +16,7 @@ def get_sum_of_cifr(number):
 input_data = input("Введите необходимую сумму цифр: ")
 count = 0
 
-if input_data.isdigit():
+if check_for_correct_input(input_data):
     necessary_sum = int(input_data)
     if necessary_sum >= 0:
         for i in range(-999,-99):
